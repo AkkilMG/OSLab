@@ -21,8 +21,8 @@ int main() {
         printf("This is the child process with PID: %d\n", getpid());
         printf("Parent process PID: %d\n", getppid());
 
-        execlp("/bin/ls", "ls", NULL);
-        printf("This shouyld not be printed if exec() is successful.\n");
+        execlp("/bin/pwd", "ls", NULL);
+        printf("This should not be printed if exec() is successful.\n");
         return 0;
     } else {
         printf("This is the parent process with PID: %d\n", getpid());
