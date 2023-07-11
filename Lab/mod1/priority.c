@@ -92,31 +92,32 @@ void priority(int processes[],int n,int burst_time[],int arrival_time[],int prio
     printf("\n");
 }
 void main() {
-    /*
-    Enter the number of processes: 3
-    Enter the arrival time for process 1:
-    12
-    Enter the Burst time for processes 1:
-    23
-    Enter the priority for process 1:3
-    Enter the arrival time for process 2:3
-    Enter the Burst time for processes 2:3
+    /*output
+    Enter the number of processes: 4
+    Enter the arrival time for process 1:2
+    Enter the Burst time for processes 1:1
+    Enter the priority for process 1:4
+    Enter the arrival time for process 2:1
+    Enter the Burst time for processes 2:5
     Enter the priority for process 2:2
-    Enter the arrival time for process 3:2
-    Enter the Burst time for processes 3:2
-    Enter the priority for process 3:2
+    Enter the arrival time for process 3:4
+    Enter the Burst time for processes 3:1
+    Enter the priority for process 3:6
+    Enter the arrival time for process 4:0
+    Enter the Burst time for processes 4:6
+    Enter the priority for process 4:1
 
     Priority algorithm
     Processes       AT      BT      Priority        WT      TAT     CT      RT
-    1               12      23      3               0       23      35      0
-    2               3       3       2               1       4       7       1
-    3               2       2       2               0       2       4       0
-    AVG waiting time: 0.333333
-    AVG turnaround time: 9.666667
-    AVG Response time: 0.333333
-    Total Idle time: 7
+    1               2       1       4               4       5       7       4
+    2               1       5       2               6       11      12      6
+    3               4       1       6               8       9       13      8
+    4               0       6       1               0       6       6       0
+    AVG waiting time: 4.500000
+    AVG turnaround time: 7.750000
+    AVG Response time: 4.500000
+    Total Idle time: 0
     */
-
     int n;
     int quantum;
     printf("Enter the number of processes: ");
@@ -134,4 +135,3 @@ void main() {
     }
     priority(processes,n,burst_time,arrival_time,prioritylist);
 }
-
