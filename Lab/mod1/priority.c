@@ -91,8 +91,32 @@ void priority(int processes[],int n,int burst_time[],int arrival_time[],int prio
     printf("Total Idle time: %d\n",idle);
     printf("\n");
 }
-void main()
-{
+void main() {
+    /*
+    Enter the number of processes: 3
+    Enter the arrival time for process 1:
+    12
+    Enter the Burst time for processes 1:
+    23
+    Enter the priority for process 1:3
+    Enter the arrival time for process 2:3
+    Enter the Burst time for processes 2:3
+    Enter the priority for process 2:2
+    Enter the arrival time for process 3:2
+    Enter the Burst time for processes 3:2
+    Enter the priority for process 3:2
+
+    Priority algorithm
+    Processes       AT      BT      Priority        WT      TAT     CT      RT
+    1               12      23      3               0       23      35      0
+    2               3       3       2               1       4       7       1
+    3               2       2       2               0       2       4       0
+    AVG waiting time: 0.333333
+    AVG turnaround time: 9.666667
+    AVG Response time: 0.333333
+    Total Idle time: 7
+    */
+
     int n;
     int quantum;
     printf("Enter the number of processes: ");
@@ -111,29 +135,3 @@ void main()
     priority(processes,n,burst_time,arrival_time,prioritylist);
 }
 
-/*
-
-Enter the number of processes: 3
-Enter the arrival time for process 1:
-12
-Enter the Burst time for processes 1:
-23
-Enter the priority for process 1:3
-Enter the arrival time for process 2:3
-Enter the Burst time for processes 2:3
-Enter the priority for process 2:2
-Enter the arrival time for process 3:2
-Enter the Burst time for processes 3:2
-Enter the priority for process 3:2
-
-Priority algorithm
-Processes       AT      BT      Priority        WT      TAT     CT      RT
-1               12      23      3               0       23      35      0
-2               3       3       2               1       4       7       1
-3               2       2       2               0       2       4       0
-AVG waiting time: 0.333333
-AVG turnaround time: 9.666667
-AVG Response time: 0.333333
-Total Idle time: 7
-
-*/

@@ -1,4 +1,40 @@
 #include<stdio.h>
+int main(){
+    /*
+        Enter the number of processes: 4
+    Enter the arrival time for process 1:2
+    Enter the Burst time for processes 1:1
+    Enter the arrival time for process 2:1
+    Enter the Burst time for processes 2:5
+    Enter the arrival time for process 3:4
+    Enter the Burst time for processes 3:1
+    Enter the arrival time for process 4:0
+    Enter the Burst time for processes 4:6
+    FCFS agorithm
+    Processes       AT      BT      WT      TAT     CT      RT
+    4               0       6       0       6       6       0
+    2               1       5       5       10      11      5
+    1               2       1       9       10      12      9
+    3               4       1       8       9       13      8
+    AVG waiting time: 5.500000
+    AVG turnaround time: 8.750000
+    Total Idle time: 0
+    */
+    int n=0;
+    printf("Enter the number of processes: ");
+    scanf("%d",&n);
+    int processes[n],burst_time[n],arrival_time[n];
+    for (int i = 0; i < n; i++)
+    {
+        printf("Enter the arrival time for process %d:",i+1);
+        scanf("%d",&arrival_time[i]);
+        printf("Enter the Burst time for processes %d:",i+1);
+        scanf("%d",&burst_time[i]);
+        processes[i]=i+1;
+    }
+    fcfs(processes,n,burst_time,arrival_time);
+}
+
 void printer(int processes[],int n,int burst_time[],int arrival_time[])
 {
     int WT[n],TAT[n],total_WT=0,total_TAT=0,completion_time[n],idle=0,RT[n];
@@ -50,7 +86,7 @@ void Sorter(int n,int processes[],int burst_time[],int arrival_time[])
         int first=i;
         for (int j = i+1; j < n; j++)
         {
-            if (burst_time[j]<burst_time[first])
+            if (arrival_time[j]<arrival_time[first])
             {
                 first=j;
             }
@@ -68,42 +104,9 @@ void Sorter(int n,int processes[],int burst_time[],int arrival_time[])
         arrival_time[first]=temp;
     }
 }
-void sjf(int processes[],int n,int burst_time[],int arrival_time[])
+void fcfs(int processes[],int n,int burst_time[],int arrival_time[])
 {
     Sorter(n,processes,burst_time,arrival_time);
-    printf("SJF agorithm\n");
+    printf("FCFS agorithm\n");
     printer(processes,n,burst_time,arrival_time);
-}
-void main()
-{
-    /*ouput
-    Enter the number of processes: 3
-    Enter the arrival time for process 1:1
-    Enter the Burst time for processes 1:2
-    Enter the arrival time for process 2:3
-    Enter the Burst time for processes 2:4
-    Enter the arrival time for process 3:5
-    Enter the Burst time for processes 3:3
-    SJF agorithm
-    Processes       AT      BT      WT      TAT     CT      RT
-    1               1       2       0       2       3       0
-    3               5       3       0       3       8       0
-    2               3       4       5       9       12      5
-    AVG waiting time: 1.666667
-    AVG turnaround time: 4.666667
-    Total Idle time: 3
-    */
-    int n=0;
-    printf("Enter the number of processes: ");
-    scanf("%d",&n);
-    int processes[n],burst_time[n],arrival_time[n];
-    for (int i = 0; i < n; i++)
-    {
-        printf("Enter the arrival time for process %d:",i+1);
-        scanf("%d",&arrival_time[i]);
-        printf("Enter the Burst time for processes %d:",i+1);
-        scanf("%d",&burst_time[i]);
-        processes[i]=i+1;
-    }
-    sjf(processes,n,burst_time,arrival_time);
 }

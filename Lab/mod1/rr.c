@@ -100,8 +100,31 @@ void roundRobin(int processes[],int n,int burst_time[],int quantum,int arrival_t
     printf("Total Idle time: %d\n",idle);
     printf("\n");
 }
-void main()
-{
+void main() {
+    /*ouput
+    Enter the number of processes: 3
+    Enter the arrival time for process 1:0
+    Enter the Burst time for processes 1:1
+    Enter the priority for process 1:2
+    Enter the arrival time for process 2:3
+    Enter the Burst time for processes 2:
+    3
+    Enter the priority for process 2:4
+    Enter the arrival time for process 3:5
+    Enter the Burst time for processes 3:7
+    Enter the priority for process 3:1
+    Enter the time quantum for round robin: 2
+
+    ROund RObin algorithm
+    Processes       AT      BT      Priority        WT      TAT     CT      RT
+    1               0       1       2               0       1       1       0
+    2               3       3       4               2       5       8       0
+    3               5       7       1               1       8       13      0
+    AVG waiting time: 1.000000
+    AVG turnaround time: 4.666667
+    AVG Response time: 0.000000
+    Total Idle time: 2
+    */
     int n;
     int quantum;
     printf("Enter the number of processes: ");
@@ -121,27 +144,4 @@ void main()
     scanf("%d",&quantum);
     roundRobin(processes,n,burst_time,quantum,arrival_time,prioritylist);
 }
-/*
 
-Enter the number of processes: 3
-Enter the arrival time for process 1:0
-Enter the Burst time for processes 1:1
-Enter the priority for process 1:2
-Enter the arrival time for process 2:3
-Enter the Burst time for processes 2:
-3
-Enter the priority for process 2:4
-Enter the arrival time for process 3:5
-Enter the Burst time for processes 3:7
-Enter the priority for process 3:1
-Enter the time quantum for round robin: 2
-
-ROund RObin algorithm
-Processes       AT      BT      Priority        WT      TAT     CT      RT
-1               0       1       2               0       1       1       0
-2               3       3       4               2       5       8       0
-3               5       7       1               1       8       13      0
-AVG waiting time: 1.000000
-AVG turnaround time: 4.666667
-AVG Response time: 0.000000
-Total Idle time: 2*/
