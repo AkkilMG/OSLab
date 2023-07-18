@@ -11,7 +11,7 @@ pthread_t philosopher[NUM_PHILOSOPHERS];
 pthread_mutex_t chopstick[NUM_CHOPSTICKS];
 
 int main() {
-    /*ouput
+    /*ouput: [cmd: gcc pthread philosopher.c]
     Philosopher  1 is thinking 
     Philosopher  1 is eating 
     Philosopher  2 is thinking 
