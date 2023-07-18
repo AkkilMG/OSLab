@@ -3,7 +3,7 @@ void main(){
     /*output:
     Enter the number of resources : 3
 
-    enter the max instances of each resources
+    Enter the max instances of each resources
     a= 10
     b= 5
     c= 7
@@ -26,20 +26,20 @@ void main(){
     P[3]  2 2 2
     P[4]  4 3 3
 
-        < P[1]  P[3]  P[4]  P[0]  P[2] >
+    < P[1]  P[3]  P[4]  P[0]  P[2] >
     */
     int k=0,output[10],d=0,t=0,ins[5],i,avail[5],allocated[10][5],need[10][5],max[10][5],pno,j,rz,P[10],count=0;
-    printf("\n Enter the number of resources : ");
+    printf("\nEnter the number of resources : ");
     scanf("%d",&rz);
-    printf("\n enter the max instances of each resources\n");
+    printf("\nEnter the max instances of each resources\n");
     for(i=0;i<rz;i++) {
         avail[i]=0;
         printf("%c= ",(i+97));
         scanf("%d",&ins[i]);
     }
-    printf("\n Enter the number of processes : ");
+    printf("\nEnter the number of processes : ");
     scanf("%d",&pno);
-    printf("\n Enter the allocation matrix \n     ");
+    printf("\nEnter the allocation matrix \n     ");
     for(i=0;i<rz;i++)
         printf(" %c",(i+97));
     printf("\n");
@@ -84,7 +84,7 @@ void main(){
         pno=d+1;
         goto A;
     }
-    printf("\t <");
+    printf("<");
     for(i=0;i<k;i++)
         printf(" P[%d] ",output[i]);
     printf(">\n");
