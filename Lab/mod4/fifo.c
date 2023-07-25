@@ -12,7 +12,7 @@ int main() {
     5               5       3       0
     6               5       6       0
     3               5       6       3
-    Page Fault is 6
+    Page fault is 6
     */
     int i,j,n,a[50],frame[10],no,k,avail,fault=0;
     printf("Enter the number of pages:");
@@ -41,6 +41,6 @@ int main() {
         }
         printf("\n");
     }
-    printf("Page Fault is %d\n",fault);
+    printf("Page fault is %d\n",fault);
     return 0;
 }

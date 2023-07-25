@@ -1,5 +1,6 @@
 #include<stdio.h>
 #include<limits.h>
+
 int checkhit(int incomingPage, int queue[], int occupied){
     for(int i=0;i<occupied;i++){
         if(incomingPage==queue[i])
@@ -7,11 +8,32 @@ int checkhit(int incomingPage, int queue[], int occupied){
     }
     return 0;
 }
+
 void printFrame(int queue[],int occupied){
     for(int i=0;i<occupied;i++)
     printf("%d\t",queue[i]);
 }
+
 void main(){
+    /*output:
+    Page    Frame1  Frame2  Frame3
+    1:      1
+    2:      1       2
+    3:      1       2       3
+    2:      1       2       3
+    1:      1       2       3
+    5:      1       2       5
+    2:      1       2       5
+    1:      1       2       5
+    6:      1       2       6
+    2:      1       2       6
+    5:      5       2       6
+    6:      5       2       6
+    3:      5       3       6
+    1:      1       3       6
+    3:      1       3       6
+    Page Fault: 8
+    */
     int incomingStream[]={1,2,3,2,1,5,2,1,6,2,5,6,3,1,3};
     int n=sizeof(incomingStream)/sizeof(incomingStream[0]);
     int frames=3,queue[n],distance[n],occupied=0,pagefault=0;
@@ -45,5 +67,5 @@ void main(){
         }
         printf("\n");
     }
-    printf("Page Fault:%d",pagefault);
+    printf("Page Fault: %d\n",pagefault);
 }
